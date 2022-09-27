@@ -1,0 +1,1 @@
+export { typesMaterial } from './typesMaterial'

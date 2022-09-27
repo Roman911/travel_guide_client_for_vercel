@@ -1,0 +1,1 @@
+export { PostsHomePage } from './Containers'
