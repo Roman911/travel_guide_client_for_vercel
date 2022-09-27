@@ -4,14 +4,13 @@ import {
   InMemoryCache,
   NormalizedCacheObject,
 } from '@apollo/client'
-import { createUploadLink } from 'apollo-upload-client'
 
 let apolloClient: ApolloClient<NormalizedCacheObject>
 
 function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    uri: 'http://localhost:3005/graphql',
+    uri: process.env.GRAPHQL_URI,
     cache: new InMemoryCache(),
   })
 }
