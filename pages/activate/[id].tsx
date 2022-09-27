@@ -57,14 +57,14 @@ const Activate: NextPage = () => {
     if (activationLink) {
       activation({ variables: { activationLink } })
     }
-  }, [activationLink])
+  }, [activationLink, activation])
 
   React.useEffect(() => {
     if (data) {
       addUserData(data.activate)
       localStorage.setItem('userData', JSON.stringify({ ...data.activate }))
     }
-  }, [data])
+  }, [data, addUserData])
 
   return (
     <MainLayout>
