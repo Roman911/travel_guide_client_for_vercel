@@ -1,7 +1,7 @@
 const serverIP = 'https://tg-server-herocu.herokuapp.com'
 const localhostIP = 'http://localhost:3005'
 const dev = false
-export const IP = dev ? localhostIP : serverIP
+const IP = dev ? localhostIP : serverIP
 
 module.exports = {
   images: {
