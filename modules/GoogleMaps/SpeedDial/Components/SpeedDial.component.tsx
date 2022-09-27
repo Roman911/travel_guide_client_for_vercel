@@ -9,14 +9,14 @@ import { AddLocationAlt, Earbuds, Edit } from '@mui/icons-material'
 
 type Props = {
   handleClick: (
-    set: 'createDirection' | 'createLocation' | 'locationsList'
+    set: 'createTrip' | 'createLocation' | 'locationsList' | 'location' | 'trip'
   ) => void
 }
 
 interface IActionProps {
   icon: React.ReactElement<SvgIconProps>
   name: string
-  set: 'createDirection' | 'createLocation' | 'locationsList'
+  set: 'createTrip' | 'createLocation' | 'locationsList' | 'location' | 'trip'
 }
 
 const actions: IActionProps[] = [
@@ -28,7 +28,7 @@ const actions: IActionProps[] = [
   {
     icon: <Earbuds sx={{ transform: 'rotate(90deg)' }} />,
     name: 'Створити маршрут',
-    set: 'createDirection',
+    set: 'createTrip',
   },
 ]
 

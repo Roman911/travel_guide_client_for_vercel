@@ -8,7 +8,7 @@ const SpeedDial: React.FC = () => {
   const { addedNotification, setDialog, setLeftBox } = useActions()
 
   const handleClick = (
-    set: 'createDirection' | 'createLocation' | 'locationsList'
+    set: 'createTrip' | 'createLocation' | 'locationsList' | 'location' | 'trip'
   ) => {
     setDialog(true)
     //addedNotification({

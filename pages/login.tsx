@@ -87,7 +87,14 @@ const Login: NextPage = () => {
       })
       changeLinearProgress(true)
     }
-  }, [error, loading, data])
+  }, [
+    error,
+    loading,
+    data,
+    addUserData,
+    addedNotification,
+    changeLinearProgress,
+  ])
 
   if (data) return <Redirect href={'/'} />
 
