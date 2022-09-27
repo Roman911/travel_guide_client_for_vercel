@@ -21,8 +21,10 @@ export const Regions: React.FC<IProps> = ({ isMap, width }) => {
     if (isMap) {
       option
         ? setViewport({
-            latitude: option.center.lat,
-            longitude: option.center.lng,
+            center: {
+              lat: option.center.lat,
+              lng: option.center.lng,
+            },
             zoom: 7,
           })
         : setViewportSeeMap()
