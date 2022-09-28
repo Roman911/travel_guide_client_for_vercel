@@ -14,8 +14,15 @@ interface IProps {
 
 const CardSkeleton: React.FC<IProps> = ({ md }) => {
   return (
-    <Grid item xs={12} sm={6} md={md ? md : 3} p={1}>
-      <Card sx={{ maxWidth: 345 }}>
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={md ? md : 3}
+      p={{ xs: '10px 0', sm: 1 }}
+      width="100%"
+    >
+      <Card sx={{ maxWidth: { xs: '100%', sm: 345 } }}>
         <CardHeader
           avatar={
             <Skeleton

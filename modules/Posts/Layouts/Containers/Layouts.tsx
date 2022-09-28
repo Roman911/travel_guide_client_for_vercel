@@ -34,11 +34,9 @@ const Layouts: React.FC<IProps> = ({
   home,
   layout: { title, link, linkTitle },
 }) => {
+  const marginTop = home ? '0px' : '73px'
   return (
-    <Container
-      maxWidth="xl"
-      sx={home ? { marginTop: 0 } : { marginTop: '73px' }}
-    >
+    <Container maxWidth="xl" sx={{ marginTop }}>
       <Typography variant="h2">{title}</Typography>
       {home ? (
         <PostsHomePage link={link} linkTitle={linkTitle}>

@@ -58,8 +58,8 @@ const CardComponent: React.FC<IProps> = ({
   } = item
 
   return (
-    <Grid item xs={12} sm={6} md={md || 3} p={1}>
-      <Card sx={{ maxWidth: 345 }}>
+    <Grid item xs={12} sm={6} md={md || 3} p={{ xs: '10px 0', sm: 1 }}>
+      <Card sx={{ maxWidth: { xs: '100%', sm: 345 } }}>
         <CardHeader
           avatar={<Avatar size={40} userData={{ name, avatar }} />}
           action={
