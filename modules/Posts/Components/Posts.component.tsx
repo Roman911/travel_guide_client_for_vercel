@@ -34,7 +34,7 @@ const PostsComponent: React.FC<IProps> = ({
       flexDirection={{ xs: 'column', sm: 'column', md: 'row' }}
       padding={{ xs: '0', sm: '0', md: '0 10px' }}
     >
-      {false ? postsMap : postsSkeleton}
+      {posts ? postsMap : postsSkeleton}
     </Grid>
   )
 }

@@ -3,12 +3,10 @@ import {
   BottomNavigation,
   BottomNavigationAction,
   Box,
-  Button,
   Dialog,
   IconButton,
   List,
   ListItem,
-  ListItemText,
   Paper,
   Stack,
 } from '@mui/material'
@@ -18,11 +16,13 @@ import { Logo } from '../../..'
 type Props = {
   isOpen: boolean
   handleClick: () => void
+  handleClickRout: (rout: string) => void
 }
 
 const BottomNavigationComponent: React.FC<Props> = ({
   isOpen,
   handleClick,
+  handleClickRout,
 }) => {
   return (
     <Box>
@@ -36,13 +36,17 @@ const BottomNavigationComponent: React.FC<Props> = ({
         }}
         elevation={3}
       >
-        <BottomNavigation
-          showLabels
-          //value={value}
-          //onChange={(event, newValue) => {setValue(newValue)}}
-        >
-          <BottomNavigationAction label="Головна" icon={<Home />} />
-          <BottomNavigationAction label="Пошук" icon={<Search />} />
+        <BottomNavigation showLabels>
+          <BottomNavigationAction
+            onClick={() => handleClickRout('/')}
+            label="Головна"
+            icon={<Home />}
+          />
+          <BottomNavigationAction
+            onClick={() => handleClickRout('/search')}
+            label="Пошук"
+            icon={<Search />}
+          />
           <BottomNavigationAction
             onClick={handleClick}
             label="Меню"
@@ -77,16 +81,32 @@ const BottomNavigationComponent: React.FC<Props> = ({
           </Box>
         </Stack>
         <List>
-          <ListItem button sx={{ justifyContent: 'center', fontSize: 22 }}>
+          <ListItem
+            button
+            onClick={() => handleClickRout('/posts')}
+            sx={{ justifyContent: 'center', fontSize: 22 }}
+          >
             Новини
           </ListItem>
-          <ListItem button sx={{ justifyContent: 'center', fontSize: 22 }}>
-            Мапа
+          <ListItem
+            button
+            onClick={() => handleClickRout('/maps')}
+            sx={{ justifyContent: 'center', fontSize: 22 }}
+          >
+            Цікаві місця
           </ListItem>
-          <ListItem button sx={{ justifyContent: 'center', fontSize: 22 }}>
+          <ListItem
+            button
+            onClick={() => handleClickRout('/trips')}
+            sx={{ justifyContent: 'center', fontSize: 22 }}
+          >
             Маршрути
           </ListItem>
-          <ListItem button sx={{ justifyContent: 'center', fontSize: 22 }}>
+          <ListItem
+            button
+            onClick={() => handleClickRout('/about')}
+            sx={{ justifyContent: 'center', fontSize: 22 }}
+          >
             Про нас
           </ListItem>
         </List>
