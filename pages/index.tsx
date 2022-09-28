@@ -21,6 +21,8 @@ const Home: NextPage = () => {
     error: errorByTrips,
   } = useQuery(TRIPS, { variables: { input: { limit: 8, page: 1 } } })
 
+  const a = process.env.DB_HOST
+
   console.log('render: pages, Home')
 
   return (

@@ -20,7 +20,7 @@ const libraries = ['places']
 
 const GoogleMaps: React.FC<IProps> = ({ mapContainerStyle }) => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLE_MAPS_KAY || '',
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
     language: 'uk',
     region: 'UA',
     // @ts-ignore
