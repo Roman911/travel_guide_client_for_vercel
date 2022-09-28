@@ -27,7 +27,7 @@ const Post: React.FC<IProps> = ({ post, isTrip }) => {
   const { darkGray, icon } = useColors()
   const style = inView
     ? { position: 'absolute', top: 'auto' }
-    : { position: 'fixed', top: '100px' }
+    : { position: 'fixed', top: { sx: 'auto', md: '100px' } }
 
   const handleClickToUser = (userId: string) => {
     changeLinearProgress(true)

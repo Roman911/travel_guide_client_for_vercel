@@ -20,7 +20,12 @@ export interface IPropsComponent {
   }
   style: {
     position: string
-    top: string
+    top:
+      | {
+          sx: string
+          md: string
+        }
+      | string
   }
   isTrip: boolean
 }

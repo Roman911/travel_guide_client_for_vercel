@@ -45,8 +45,8 @@ export const PostComponent: React.FC<IPropsComponent> = ({
     <Container>
       <Stack
         marginTop={10}
-        flexDirection="row"
-        alignItems="center"
+        flexDirection={{ xs: 'column-reverse', md: 'row' }}
+        alignItems={{ xs: 'flex-start', md: 'center' }}
         justifyContent="space-between"
       >
         <Box>
@@ -66,20 +66,71 @@ export const PostComponent: React.FC<IPropsComponent> = ({
         </Typography>
       </Stack>
       <Grid container marginTop={2}>
-        <Grid item xs={1} marginTop={3} sx={{ position: 'relative' }}>
-          <Stack sx={{ ...style }}>
-            <IconButton sx={{ width: '40px', margin: '5px auto' }}>
+        <Grid
+          item
+          xs={12}
+          md={1}
+          marginTop={2}
+          sx={{
+            position: { xs: 'fixed', md: 'relative' },
+            left: 0,
+            width: '100%',
+            zIndex: 2,
+            bottom: { xs: '110px', md: 0 },
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Stack
+            sx={{
+              ...style,
+              flexDirection: { xs: 'row', md: 'column' },
+              justifyContent: 'center',
+              width: '100%',
+            }}
+          >
+            <IconButton
+              sx={{
+                width: '40px',
+                margin: { xs: '5px 10px', md: '5px auto' },
+                backgroundColor: '#fff',
+                boxShadow: {
+                  xs: 'rgb(0 0 0 / 20%) 0px 3px 5px -1px, rgb(0 0 0 / 14%) 0px 6px 10px 0px, rgb(0 0 0 / 12%) 0px 1px 18px 0px;',
+                  md: 'none',
+                },
+              }}
+            >
               <Favorite sx={{ color: '#db4454' }} />
             </IconButton>
-            <IconButton sx={{ width: '40px', margin: '5px auto' }}>
+            <IconButton
+              sx={{
+                width: '40px',
+                margin: { xs: '5px 10px', md: '5px auto' },
+                backgroundColor: '#fff',
+                boxShadow: {
+                  xs: 'rgb(0 0 0 / 20%) 0px 3px 5px -1px, rgb(0 0 0 / 14%) 0px 6px 10px 0px, rgb(0 0 0 / 12%) 0px 1px 18px 0px;',
+                  md: 'none',
+                },
+              }}
+            >
               <Facebook sx={{ color: '#3b5998' }} />
             </IconButton>
-            <IconButton sx={{ width: '40px', margin: '5px auto' }}>
+            <IconButton
+              sx={{
+                width: '40px',
+                margin: { xs: '5px 10px', md: '5px auto' },
+                backgroundColor: '#fff',
+                boxShadow: {
+                  xs: 'rgb(0 0 0 / 20%) 0px 3px 5px -1px, rgb(0 0 0 / 14%) 0px 6px 10px 0px, rgb(0 0 0 / 12%) 0px 1px 18px 0px;',
+                  md: 'none',
+                },
+              }}
+            >
               <Twitter sx={{ color: '#5ea9dd' }} />
             </IconButton>
           </Stack>
         </Grid>
-        <Grid item xs={8} marginTop={3}>
+        <Grid item xs={12} md={8} marginTop={{ xs: 0, md: 3 }}>
           <Typography variant="body1" marginBottom={2}>
             {small_text}
           </Typography>
@@ -170,7 +221,7 @@ export const PostComponent: React.FC<IPropsComponent> = ({
           </Stack>
           <Comments postId={_id} />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <MyStepper steps={steps} />
           <Paper elevation={2} sx={{ marginLeft: 2, padding: '5px 20px' }}>
             <Typography variant="h6">Популярні</Typography>
