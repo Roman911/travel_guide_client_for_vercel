@@ -29,6 +29,9 @@ export const TRIP_FOR_POST = gql`
         }
         location {
           isType
+          cover
+          title
+          address
         }
       }
       ${Author}
@@ -64,6 +67,9 @@ export const TRIP = gql`
         }
         location {
           isType
+          cover
+          title
+          address
         }
       }
       ${Author}
