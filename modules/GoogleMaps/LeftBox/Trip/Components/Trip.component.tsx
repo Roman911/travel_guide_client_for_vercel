@@ -30,12 +30,34 @@ interface IProps {
       travel_time: number
       waypoints: number
     }
+    legs: {
+      distance: {
+        value: number
+      }
+    }
+    waypoints: {
+      location: {
+        isType: string
+        cover: string
+        title: string
+        address: string
+      } | null
+    }[]
   }
   widthLeftBox: string
 }
 
 const TripComponent: React.FC<IProps> = ({ trip, widthLeftBox }) => {
-  const { author, cover, createdAt, small_text, title, trip_value } = trip
+  const {
+    author,
+    cover,
+    createdAt,
+    small_text,
+    title,
+    trip_value,
+    legs,
+    waypoints,
+  } = trip
 
   return (
     <Box position="relative" sx={{ overflowY: 'auto', height: '100%' }}>
@@ -108,9 +130,17 @@ const TripComponent: React.FC<IProps> = ({ trip, widthLeftBox }) => {
         />
         <TripInfo trip_value={trip_value} isCard={false} />
       </Stack>
-      <Stack position="relative">
-        {[1, 2, 3, 4].map(i => {
-          return <Card key={i} />
+      <Stack position="relative" sx={{ marginTop: 2 }}>
+        {waypoints.map((i, index) => {
+          return (
+            <Card
+              key={index}
+              index={index}
+              length={waypoints.length}
+              location={i.location}
+              distance={Math.round(legs[index + 1].distance.value / 1000)}
+            />
+          )
         })}
       </Stack>
     </Box>
