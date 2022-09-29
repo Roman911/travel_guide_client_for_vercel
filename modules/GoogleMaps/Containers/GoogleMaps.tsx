@@ -52,13 +52,22 @@ const GoogleMaps: React.FC<IProps> = ({ mapContainerStyle }) => {
         zoom: mapRefCurent.zoom,
       })
       if (getBounds) {
-        const Ab: { lo: number; hi: number } = getBounds.Ab
-        const Va: { lo: number; hi: number } = getBounds.Va
-        const bounds: [number[], number[]] = [
-          [Ab.lo, Ab.hi],
-          [Va.lo, Va.hi],
-        ]
-        setBounds(bounds)
+        let cur = 0
+        let Ab = { lo: 0, hi: 0 }
+        let Va = { lo: 0, hi: 0 }
+        for (let key in getBounds) {
+          if (cur === 0) Ab = getBounds[key]
+          if (cur === 1) Va = getBounds[key]
+          if (cur === 1) break
+          cur++
+        }
+        if (cur === 1) {
+          const bounds: [number[], number[]] = [
+            [Ab.lo, Ab.hi],
+            [Va.lo, Va.hi],
+          ]
+          setBounds(bounds)
+        }
       }
     }
   }
