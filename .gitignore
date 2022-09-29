@@ -24,6 +24,7 @@ npm-debug.log*
 
 next-env.d.ts
 tsconfig.json
+next.config.js
 
 # IDE - VSCode
 .vscode/*
